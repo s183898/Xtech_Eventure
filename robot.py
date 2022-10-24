@@ -33,23 +33,45 @@ class Scraper:
     def root_url(self):
         root_url = self.input_url.split('//')[1]
         root_url = root_url.split('/')[0]
-        return root_url        
+        return root_url
 
-zarpaulo = Scraper('https://www.zarpaulo.com/dfsfdsf')
+    def search_keyword(self, keyword, text):
+        if keyword in text:
+            return True
+        else:
+            return False
 
-url = zarpaulo.url
+#### Zarpaulo ####
 
-links = zarpaulo.get_links(url)
+# zarpaulo = Scraper('https://www.zarpaulo.com/dfsfdsf')
 
-for link in links:
-    print(zarpaulo.get_links(url+"/"+link))
+# url = zarpaulo.url
 
-lydmor = Scraper("https://www.lydmor.dk/")
+# links = zarpaulo.get_links(url)
 
-url = lydmor.url
+# for link in links:
+#     print(zarpaulo.get_links(url+"/"+link))
 
-links = lydmor.get_links(url)
+#### Lydmor ####
 
-print(links)
-print()
-print(lydmor.get_robot_txt())
+# lydmor = Scraper("https://www.lydmor.dk/")
+
+# url = lydmor.url
+
+# links = lydmor.get_links(url)
+
+# print(links)
+# print()
+# print(lydmor.get_robot_txt())
+
+
+#### facebook ####
+
+link = "https://www.facebook.com/robots.txt"
+
+facebook = Scraper(link)
+
+txt = facebook.get_robot_txt()
+print(txt)
+print(facebook.search_keyword("event", txt))
+
