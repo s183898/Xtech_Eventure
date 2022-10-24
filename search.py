@@ -4,7 +4,7 @@ import pandas as pd
 from requests_html import HTML
 from requests_html import HTMLSession
 
-from robot import Scraper
+from url_manager import Scraper
 
 def get_source(url):
     try:
@@ -35,9 +35,10 @@ def google_search(query):
 
     return links
 
-searches = google_search("events near me")
+searches = google_search("zarpaulo")
 
-for search in searches[:2]:
+for search in searches[:1]:
+    print(search)
     scraper = Scraper(search)
     html = scraper.pretty_html(scraper.get_html(search))
 
