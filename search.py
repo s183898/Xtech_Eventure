@@ -37,9 +37,8 @@ def google_search(query):
 
 searches = google_search("events near me")
 
-print(searches)
-
-for search in searches:
+for search in searches[:2]:
     scraper = Scraper(search)
-    links = scraper.get_html(search)
-    print(links)
+    html = scraper.pretty_html(scraper.get_html(search))
+
+    print(html)

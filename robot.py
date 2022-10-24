@@ -41,6 +41,10 @@ class Scraper:
         else:
             return False
 
+    def pretty_html(self, html):
+        soup = BeautifulSoup(html, 'html.parser')
+        return soup.prettify()
+
 if __name__ == "__main__":
     link = 'https://lydmor.dk'
     scraper = Scraper(link)
